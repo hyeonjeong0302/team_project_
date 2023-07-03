@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>스노우맨22 솔리드 테이블 스탠드</title>
+  <link rel="shortcut icon" href="./images/logo_favicon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+
+  <!--css 초기화-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" />
+
+  <!-- SWIPER 외부 라이브러리 연결-->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+  <!--google material icon 사용
+  class="material-icons"-->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons" />
+
+  <!-- main.css 연결 -->
+  <link rel="stylesheet" href="./scss/detail.scss" />
+  <link rel="stylesheet" href="./scss/detail.css" />
+  <!-- main.js 연결 -->
+  <script src="./js/detail.js" defer></script>
+  <script src="./js/swiper.js" defer></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+<!-- 모달 -->
+  <div class="shopping_history hidden_history" id="shoppingHistory">
+    <div class="history_top">
+      <h1>SHOPPING HISTORY</h1>
+      <div class="history_close_btn" id="historyCloseBtn"><i class="far fa-times"></i></div>
+    </div>
+    <h2>TODAY</h2>
+    <div class="history_middle_ex" id="historyMiddleEx">
+      <div class="history_middle hidden_history_middle" id="historyMiddle">
+        <div class="history_middle_info">
+          <a href="./detail.html">
+            <div class="history_middle_image"><img src="./images/sub_04.jpg" alt=""></div>
+            <div class="history_middle_text">
+              <p class="recent">FROG38 Pendant 5Colors</p>
+              <b class="recent_price">120,000원</b>
+            </div>
+          </a>
+        </div>
+        <div class="recent_close_btn" id="recentCloseBtn">
+          <i class="far fa-times"></i>
+        </div>
+      </div>
+    </div>
+    <div class="history_bottom">
+      <div class="delete_all" id="deleteAll">전체삭제</div>
+    </div>
+  </div>
+  <!--shopping_history-->
+  <div class="quick">
+    <div class="history_btn" id="historyBtn"><a href="#!"><img src="./images/history.png" alt=""></a></div>
+    <div class="top_btn" id="topBtn">
+    </div>
+  </div>
+  <!--quick-->
+  <!-- 카드혜택 알림창 -->
+  <div class="benefit_text_ex hidden_benefit" id="benefitPopup">
+    <div class="benefit_text">
+      <h1>카드 혜택 안내</h1>
+      <h2>5만원 이상 결제 시</h2>
+      <div><b>우리카드</b>
+        <p>2-6개월 무이자</p>
+      </div>
+      <div><b>하나카드</b>
+        <p>2-3개월 무이자</p>
+      </div>
+      <div><b>롯데카드</b>
+        <p>2-3개월 무이자</p>
+      </div>
+      <div><b>현대카드</b>
+        <p>2-3개월 무이자</p>
+      </div>
+      <div><b>NH농협카드</b>
+        <p>2-4개월 무이자</p>
+      </div>
+      <div><b>BC카드</b>
+        <p>2-6개월 무이자</p>
+      </div>
+      <div class="benefit_close_btn" id="benefitCloseBtn"><a href="#!">확인</a></div>
+    </div>
+
+  </div>
+  <!-- 카드혜택 알림창 -->
+
+  <!-- 관리자 확인 로그인 -->
+  <div class="admin_ex hidden_admin" id="adminPopup">
+    <div class="admin_text">
+      <h1>관리자 확인</h1>
+      <div class="admin_chk_box">
+        <div>
+          <label class="title" for="adminChk">아이디</label>
+          <input id="adminId" class="login_text" type="text">
+        </div>
+        <div>
+          <label class="title" for="login_pw">비밀번호</label>
+          <input id="adminPw" class="login_text" type="password">
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="loginBtn" class="login_btn" type="button">확인</button>
+        <button id="closeBtn" class="close_btn" type="button">닫기</button>
+      </div>
+    </div>
+  </div>
+  <!-- 관리자 확인 로그인 -->
+<!-- 모달 -->
+  <header class="header_ex">
+    <div class="header">
+      <div class="logo">
+        <a href="index.html"><img src="./images/logo.png" alt="logo" /></a>
+      </div>
+      <!--logo-->
+      <div class="gnb popins">
+        <ul class="shop">
+          <li id="gnb_shop"><a href="./sub.html">SHOP</a></li>
+          <li><a href="./sub.html">OUR STORY</a></li>
+          <li><a href="./sub.html">SPECIAL PROJECT</a></li>
+          <li><a href="./sub.html">SUPPORT</a></li>
+          <li><a href="./sub.html">CONTACT</a></li>
+        </ul>
+      </div>
+      <div class="shop_lnb hidden_lnb" id="shop_lnb">
+        <ul>
+          <li class="first_li">
+            <a href="#">NEW</a><a href="#">IK IDEA</a>
+          </li>
+          <li><a href="./sub.html">IK 테이블 스탠드</a></li>
+          <li><a href="./sub.html">IK 플로어 스탠드</a></li>
+          <li><a href="./sub.html">IK 팬던트</a></li>
+          <li><a href="./sub.html">클래식전구</a></li>
+          <li><a href="./sub.html">장식용전구</a></li>
+          <li><a href="./sub.html">삼파장전구</a></li>
+          <li><a href="./sub.html">가드닝전구</a></li>
+          <li><a href="./sub.html">할로겐전구</a></li>
+          <li><a href="./sub.html">산업용전구</a></li>
+          <li><a href="./sub.html">크립톤전구</a></li>
+          <li><a href="./sub.html">LED전구</a></li>
+        </ul>
+      </div>
+      <!--gnb-->
+      <div class="header_right">
+        <div class="search">
+          <input type="search" />
+          <a href="#"><img src="./images/search.png" alt="" /></a>
+        </div>
+        <div class="login">
+          <a href="./login.html">로그인</a>
+        </div>
+
+        <div class="join"><a href="./terms.html">회원가입</a></div>
+      </div>
+      <!--header_right-->
+    </div>
+    <!--wrap-->
+  </header>
+  <!--header-->
+
+  <div class="detail_full">
+    <div class="left_area" id="leftArea">
+
+      <div class="left_top">
+        <div class="cont_area">
+          <!-- 같은 아이디 두 개 -->
+          <div id="tab1" class="cont" style="display:block;">
+            <img src="./images/snowman_image_01.jpg" alt="snowman_image">
+          </div>
+          <div id="tab2" class="cont">
+            <img src="./images/snowman_image_02.jpg" alt="snowman_image">
+          </div>
+          <div id="tab3" class="cont">
+            <img src="./images/snowman_image_03.jpg" alt="snowman_image">
+          </div>
+        </div>
+      </div>
+      <!--product_images-->
+      <div class="left_bottom">
+        <div class="tab_menu">
+          <ul class="list">
+            <li class="description_tab">
+              <a href="#tab1" class="btn">상세설명</a>
+              <!-- 같은 아이디 두 -->
+              <div id="tab1" class="cont">
+                <div>
+                  <h1>스노우맨22 솔리드 테이블 스탠드</h1>
+                  <p>SNOWMAN SERIES는 스테블 스탠드와 플로어 스탠드로 이루어진 조명기구 시리즈입니다. <br /> <br />납작한 눈사람의 모습과 닮은 22CM의 유리구는 기계의
+                    정교함이 만들 수 없는 자연스러운 매력을 더하기 위해 수작업 블로잉 방식으로 제작되었습니다.<br /> WHITE, PEACH, BUTTER 3가지 컬러를 선택할 수 있으며 불이
+                    꺼진 낮에도 아름다운 컬러가 돋보입니다. <br />스틸 소재를 섬세하게 가공한 후 유리구와 연결하며 묵직한 소재감이 안정감 있는 구조를 만듭니다.<br />유리구 안쪽에 배치한
+                    LED전구가 자연스러운 빛의 산란을
+                    만들어내어 시각적인 편암함을 줍니다.
+                    일광전구의 IK DIMMER 스위치 또는 IK PUSH 스위치를 선택할 수 있으며 조작하는 즐거움을 함께 제공합니다.</p><br />
+                  <p class="product_name">
+                    3Colors (White, Peach, Butter)
+                  </p>
+                  <img src="./images/snowman_01.jpg" alt="white">
+                  <p class="product_name">SNOWMAN22 Table Stand White</p>
+                </div>
+                <div><img src="./images/snowman_02.jpg" alt="white">
+                  <p class="product_name">SNOWMAN22 Table Stand White</p>
+                </div>
+                <div><img src="./images/snowman_03.jpg" alt="white">
+                  <p class="product_name">SNOWMAN22 Table Stand White</p>
+                </div>
+                <div><img src="./images/snowman_04.jpg" alt="white">
+                  <p class="product_name">SNOWMAN22 Table Stand White</p>
+                </div>
+                <div><img src="./images/snowman_05.jpg" alt="peach">
+                  <p class="product_name">SNOWMAN22 Table Stand Peach(Light off)</p>
+                </div>
+                <div><img src="./images/snowman_06.PNG" alt="peach">
+                  <p class="product_name">SNOWMAN22 Table Stand Peach(Light off)</p>
+                </div>
+                <div><img src="./images/snowman_07.jpg" alt="peach">
+                  <p class="product_name">SNOWMAN22 Table Stand Peach</p>
+                </div>
+                <div><img src="./images/snowman_08.jpg" alt="peach">
+                  <p class="product_name">SNOWMAN22 Table Stand Peach</p>
+                </div>
+                <div><img src="./images/snowman_09.jpg" alt="butter">
+                  <p class="product_name">SNOWMAN22 Table Stand Butter</p>
+                </div>
+                <div><img src="./images/snowman_10.jpg" alt="butter">
+                  <p class="product_name">SNOWMAN22 Table Stand Butter</p>
+                </div>
+                <div><img src="./images/snowman_11.jpg" alt="butter">
+                  <p class="product_name">SNOWMAN22 Table Stand Butter</p>
+                </div>
+                <div><img src="./images/snowman_color.jpg" alt="color">
+                  <p class="product_name">SNOWMAN22 Table Stand White, Peach, Butter(Light off)</p>
+                </div>
+                <div>
+                  <b>Product Detail</b><img src="./images/snowman_detail.jpg" alt="detail">
+                </div>
+                <div>
+                  <b>Product Color</b><img src="./images/snowman_color.jpg" alt="color">
+                </div>
+                <div class="float_left">
+                  <b>Switch Option</b><img src="./images/snowman_switch_01.jpg" alt="detail_image"><img
+                    src="./images/snowman_switch_02.jpg" alt="switch">
+                </div>
+                <div>
+                  <b>Bulb</b><img src="./images/snowman_bulb.jpg" alt="bulb">
+                </div>
+                <div class="float_left">
+                  <div>
+                    <img src="./images/snowman_dimmer_01.PNG" alt="dimmer">
+                    <p>Dimmer 50%</p>
+                  </div>
+                  <div>
+                    <img src="./images/snowman_dimmer_02.PNG" alt="dimmer">
+                    <p>Dimmer 100%</p>
+                  </div>
+                  <p>Dimming 기능은 IK Dimmer Switch를 선택한 경우에만 가능합니다.
+                    여러 기기를 사용 중인 멀티탭에 연결하는 등 전압이 불안정한 환경에서 사용 시 LED전구가 반짝이는 현상이 있을 수 있습니다. 이 경우 콘센트에 직결 또는 별도의 멀티탭 사용을
+                    권장드립니다.
+                  </p>
+                </div>
+                <div>
+                  <div>
+                    <h1>백열 vs LED</h1>
+                    <div>
+                      <b>백열(클래식 전구)</b>
+                      <p>역사가 140년이 넘는 가장 오래된 광원의 한 종류입니다. 아날로그 제품 특유의 색감과 부드러운 파장으로 여전히 많은 곳에서 사용하고 있습니다. 디머(조광기) 스위치 사용
+                        시 아주 세밀한 빛 조정이 가능하며, 일반적으로 약 2000시간을 사용할 수 있습니다. 빛과 열을 함께 내는 특성으로 전구 표면에 열이 발생하여 주의가 필요합니다. LED에
+                        비해 에너지 효율은 낮지만 고품질 빛을 요구하는 갤러리나 호텔, 작품 등에 사용되며, 소위 '사진빨이 잘 받는' 조명을 원한다면 백열전구를 적절히 사용하시기 바랍니다.
+                      </p>
+                    </div>
+                    <div>
+                      <b>LED전구</b>
+                      <p>에너지 효율이 낮은 백열전구의 단점을 보완하고 다양한 기능을 활용할 수 있도록 만든 전구입니다. 백열전구의 10%에 해당하는 에너지로 같은 빛을 내고, 제품의 수명 또한
+                        약 10배 정도 더 길게 사용할 수 있습니다. 고와트(W)의 산업용 제품이 아니라면 열이 거의 발생하지 않아 사용의 편의성도 높습니다. LED 전용 디머(조광기)를 사용하여
+                        빛 조정이 가능하지만, 백열에 비해 세밀하지 않고, 일부 구간에서 빛의 떨림이 발생하는 제품도 있어 주의가 필요합니다. 최근에는 휴대용 기기와 연동하여 보이스나 앱을 이용해
+                        컨트롤이 가능한 SMART 제품도 많이 사용되고 있습니다. 빛의 세밀함 보다 에너지 효율이 높고 관리가 쉬운 제품을 원한다면 LED전구를 사용하시기 바랍니다.</p>
+                    </div>
+                  </div>
+                  <a href="#" id="load">더 보기</a>
+
+                </div>
+            </li>
+            <li class="notice_tab">
+              <a href="#tab2" class="btn">NOTICE</a>
+              <div id="tab2" class="cont">
+                <h1>반품하실 주소</h1>
+                <p>
+                  대구시 달서구 성서공단북로3길7 일광전구 (우편번호 : 42710)
+                </p>
+                <h1>교환 및 반품이 불가능한 경우</h1>
+                <p>
+                  - 구매자의 과실로 제품 또는 포장이 훼손되어 상품가치가 현저히 상실된 경우<br />
+                  - 차량과 같이 안정되지 않은 바닥 또는 천정에서 사용 중 발생한 제품의 파손<br />
+                  - 제품의 임의 개조 및 수리 등 구매자의 책임 있는 과실로 인한 제품의 파손<br />
+                  - 야외, 고온, 저온, 다습한 환경에서의 사용 및 보관 중 발생한 제품의 손상<br />
+                  - 구매자의 단순 변심으로 인한 반품 요청이 제품 수령 후 7일을 경과한 경우<br />
+                  - 수명을 모두 사용한 램프 교환 요청의 경우<br />
+                  - 펜던트 제품 설치 후 교환 또는 반품 요청의 경우<br />
+                  - 유리 제품의 자연스러운 기포 생성 현상으로 인한 교환 또는 반품 요청의 경우<br />
+                  (수작업 블로잉 제작방식의 특징)<br />
+                  - 나무 제품의 자연스러운 옹이 생성, 균일하지 않은 색상, 패턴으로 인한 교환 또는 반품 요청의 경우<br />
+                  (모양이 일정하지 않은 자연소재의 특징)<br />
+                  - 해외의 110V전압에서 사용 등 국내와 상이한 전기 환경으로 인한 제품의 파손<br />
+                  - 포터블 스탠드 제품 쉐이드의 균일하지 않은 도장면으로 인한 교환 또는 반품 요청의 경우 <br />
+                  (PC사출 제작방식의 특징)<br />
+                  - 포터블 스탠드 제품 쉐이드의 하단부와 같이 외관상 노출되지 않는 부분의 공정상 발생하는 <br />
+                  그을림, 상처등으로 인한 교환 또는 반품 요청의 경우
+                  (ABS 사출 제작방식의 특징)
+                </p>
+                <h1>IK 시리즈 주의사항</h1>
+                <p>
+                  AC어댑터, 전원 케이블의 플러그는 끝까지 밀어 넣어 올바르게 연결해 주십시오. <br />
+                  본체, 충전 배터리에 강한 충격 및 압력을 주지 마십시오. <br />
+                  제품의 표면에 가정용 유리 세정제, 시너와 같은 강력한 세정제를 사용하지 마십시오. </p>
+              </div>
+            </li>
+            <li class="review_tab is_on">
+              <a href="#tab3" class="btn">후기</a>
+              <div id="tab3" class="cont">
+                <div class="review">
+                  <h1>후기</h1>
+                  <div class="review_btn" id="reviewBtn">후기쓰기</div>
+                  <div class="review_input hidden_input" id="reviewInput">
+                    <form id="reviewForm" action="">
+                      <div class="form_first">
+                        <label for="reviewId">아이디</label>
+                        <input type="text" id="reviewId" placeholder=" 아이디를 입력하세요">
+                      </div>
+                      <div class="form_second">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" placeholder=" 비밀번호를 입력하세요">
+                      </div>
+                      <div class="form_third">
+                        <label class="select_text" id="selectText" for="color">옵션[필수]</label>
+                        <select name="select_product_name" id="color">
+                          <option value="default">옵션을 선택하세요</option>
+                          <option name="color" value="[Color]white" id="white">[Color]white</option>
+                          <option name="color" value="[Color]butter" id="butter">[Color]butter</option>
+                          <option name="color" value="[Color]peach" id="peach">[Color]peach</option>
+                        </select>
+                      </div>
+                      <div class="form_fourth">
+                        <label for="star">별점</label>
+                        <div class="rating_box" id="star">
+                          <div class="rating">
+                            ★★★★★
+                            <span class="rating_star" id="ratingStar">★★★★★</span>
+                            <input id="starValue" type="range" value="0" step="1" min="0" max="5">
+                          </div>
+                        </div>
+                      </div>
+                      <input type="text" class="review_box" id="reviewBox" placeholder="리뷰를 작성하세요.">
+                      <div class="form_last">
+                        <!-- 이미지 올라가는지 확인용 시작 -->
+                        <input type="file" name="AttachedFile" id="uploadImage" class="upload_image" accept="image/*">
+                        <!-- 이미지 올라가는지 확인용 끝 -->
+                        <input type="button" value="올리기" id="upLoadBtn" class="up_load_btn">
+                      </div>
+                    </form>
+                  </div>
+                  <div class="review_output">
+                    <div class="review_image swiper mySwiper">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <img src="./images/review01.png" alt="review01" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review02.png" alt="review02" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review03.png" alt="review03" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review04.png" alt="review04" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review05.png" alt="review05" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review02.png" alt="review01" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review03.png" alt="review02" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review04.png" alt="review03" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review05.png" alt="review04" />
+                        </div>
+                        <div class="swiper-slide">
+                          <img src="./images/review01.png" alt="review05" />
+                        </div>
+                      </div>
+                      <div class="swiper-button-next"></div>
+                      <div class="swiper-button-prev"></div>
+                    </div><!-- 리뷰 스와이퍼 -->
+
+                    <div class="add_review_box_ex" id="addReviewBoxEx"></div>
+                    <!-- 이렇게만들기 -->
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div class="star_written">
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id">rig*********</p>
+                        </div>
+                        <div class="option">
+                          <p class="selected_option">옵션: [Color]White</p>
+                        </div>
+                        <p class="written_review">기대 안하고 구입했는데, 예산보다 더 깜찍하고 예쁘네요~ 개인적으로 매우 만족입니다!^^
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 5. 17.</p>
+
+                        <div class="user_image_ex">
+                          <!-- <img class="user_image" width="700" alt="이미지 영역" /> -->
+                        </div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <!-- 이렇게 만들기 -->
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div>
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id">rig*********</p>
+                        </div>
+                        <div>
+                          <p>옵션: </p>
+                          <p class="selected_option">[Color]White</p>
+                        </div>
+                        <p class="written_review">기대 안하고 구입했는데, 예산보다 더 깜찍하고 예쁘네요~ 개인적으로 매우 만족입니다!^^
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 5. 10.</p>
+                        <div class="user_image"> <img src="./images/review01.png" alt="review_img" /></div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div>
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id">342****</p>
+                        </div>
+                        <div>
+                          <p>옵션: </p>
+                          <p class="selected_option">[Color]Butter</p>
+                        </div>
+                        <p class="written_review">사이즈부터 색상까지 마음에 쏙 들어요<br />
+                          유리가 아니라 깨질위험없어서 안심되구요<br />
+                          이거 하나로 인테리어가 살아나네요
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 4. 19.</p>
+                        <div class="user_image"><img src="./images/review02.png" alt="review_img" /></div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div>
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id">luc******</p>
+                        </div>
+                        <div>
+                          <p>옵션: </p>
+                          <p class="selected_option">[Color]Butter </p>
+                        </div>
+                        <p class="written_review">선물했는데 만족스러워했습니다
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 4. 15.</p>
+                        <div class="user_image"></div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div>
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id">for****</p>
+                        </div>
+                        <div>
+                          <p>옵션: </p>
+                          <p class="selected_option">[Color]Butter</p>
+                        </div>
+                        <p class="written_review">스노우맨 항상 눈여겨보고 있었는데,<br />
+                          포터블로 나와서 바로 구매하게되었어요.<br />
+                          집 이곳저곳에 두고 사용해보고 있는데 어울리지 않는 곳이 없어요♡<br />
+                          특히 요즘 버터 색상 진짜 좋아하는데 딱 요런 색강이라서 정말 사랑스럽습니다!
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 4. 12.</p>
+                        <div class="user_image"></div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <div class="review_output_box">
+                      <div class="review_output_left">
+                        <!-- width 670, height 120  -->
+                        <div>
+                          <p class="star_rate">★★★★★</p>
+                          <p class="written_id"> ynh****</p>
+                        </div>
+                        <div>
+                          <p>옵션: </p>
+                          <p class="selected_option">[Color]Butter</p>
+                        </div>
+                        <p class="written_review">고민하다 샀는대 너무 기엽네요<br />
+                          포터블이라 편하고 디자인도 예뻐요
+                        </p>
+                      </div><!-- review_output_left -->
+                      <div class="review_output_right">
+                        <!-- width 80 height 150 -->
+                        <p class="date">2023. 4. 10.</p>
+                        <div class="user_image"><img src="./images/review03.png" alt="review_img"/></div>
+                      </div>
+                      <!--review_output_right-->
+                    </div>
+                    <!--review_output-->
+                  </div>
+                  <!--review_output-->
+                  <!-- 여기부터다시!! -->
+
+                  <!--review_input-->
+                  <!--review_image-->
+                </div>
+                <!--review-->
+              </div>
+            </li>
+            <li class="inquiry_tab">
+              <a href="#tab4" class="btn">문의</a>
+              <div id="tab4" class="cont">
+                <h1>문의</h1>
+                <ul class="inquiry_categories">
+                  <div><a href="#!">ALL</a></div>
+                  <div><a href="#!">상품문의</a></div>
+                  <div><a href="#!">배송문의</a></div>
+                  <div><a href="#!">기타</a></div>
+                </ul>
+                <div class="inquiry_title">
+                  <div>답변상태</div>
+                  <div>제목</div>
+                  <div>작성자</div>
+                  <div>작성일</div>
+                </div>
+                <section class="inquiry_reply_ex" id="inquiryReplyEx">
+                  <div class="inquiry_reply_box">
+
+
+
+
+                    <div class="user_inquiry">
+                      <!-- width 100 h40~55-->
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <!-- width 460 -->
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <!-- 105 -->
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <!-- 85 -->
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <!--user_inquiry-->
+
+
+
+
+
+
+
+
+
+                    <!-- /////////////// 현정!!! 헤헤ㅔ헿 이거야 -->
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+
+
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox"  onkeypress="if(event.keyCode=='13'){event.preventDefault(); searchEvt();}">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--reply_box-->
+                    <!-- ///////////////헤헤ㅔ헿 이거야 -->
+
+
+
+
+
+
+
+
+
+
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div>답변완료</div>
+                      <div class="inquiry_text" id="inquiryText2">조명상부는 재질이 플라스틱인가요? 유리인가요?</div>
+                      <div>ngel****</div>
+                      <div>2023.03.07</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox2">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <!-- 밑에 페이지네이션 마진탑75 마진바텀70 -->
+                      <div>답변완료</div>
+                      <div class="inquiry_text" id="inquiryText3">안녕하세요 현재 스노우맨 화이트 쓰고있는데 조명이 주황색인데 흰색으로 사용...</div>
+                      <div>altm*****</div>
+                      <div>2023.03.05</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox3">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div>답변완료</div>
+                      <div class="inquiry_text" id="inquiryText4">서울리빙페어에서 판매한 포터블 제품은 온라인 스토어에 언제 입고 되나요..? 이...</div>
+                      <div>dmlw******</div>
+                      <div>2023.03.03</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox4">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div>답변완료</div>
+                      <div class="secret">비밀글입니다. <div class="lock_img">
+                          <img src="./images/lock.png" alt="lock">
+                        </div>
+                      </div>
+                      <div>dmlw******</div>
+                      <div>2023.03.01</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox5">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div>답변완료</div>
+                      <div class="secret">비밀글입니다. <div class="lock_img">
+                          <img src="./images/lock.png" alt="lock">
+                        </div>
+                      </div>
+                      <div>hyj5***</div>
+                      <div>2023.03.01</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox6">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div>답변완료</div>
+                      <div class="inquiry_text" id="inquiryText5">안녕하세요 전구 밝기 조절 관련해서요 스위치로 50,100이렇게 두단계로만 조...</div>
+                      <div>hosa****</div>
+                      <div>2023.02.28</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox7">
+                      <div>딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="seller_reply_output">
+                        <div class="reply_icon">답변</div>
+                        <div class="seller_reply_text">
+                          안녕하세요. "We make the light" 일광전구입니다. <br />
+                          원하시는 옵션은 해당 상품과 호환되지 않습니다.<br />
+                          고객님께서 문의하신 제품과 비슷한 제품으로 29CM 전용 상품이 있습니다.<br />
+                          구매 가능한 링크 첨부 드리오니 확인 후 구매해주시길 바랍니다.<br />
+                          https://product.29cm.co.kr/catalog/1802831<br />
+                          감사합니다.
+                        </div>
+                      </div>
+                    </div>
+                    <!--reply_box-->
+                  </div>
+                  <!--inquiry_reply_box-->
+                </section>
+                <!--inquiry_reply_ex-->
+
+                <!-- <section class="inquiry_reply_ex" id="inquiryReplyEx">
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inquiry_reply_box">
+                    <div class="user_inquiry">
+                      <div class="reply_state" id="replyState">답변대기</div>
+                      <div class="inquiry_text" id="inquiryText1">딥그린에 화이트 조명부분으로도 가능할까요?</div>
+                      <div class="inquiry_id" id="inquiryId">ngel****</div>
+                      <div class="inquiry_date" id="inquiryDate">2023.03.09</div>
+                    </div>
+                    <div class="reply_box hidden_reply_box" id="hiddenReplyBox1">
+                      <div class="reply_write">딥그린에 화이트 조명부분으로도 가능할까요?
+                        (아이디: admin / 비밀번호: 1111)
+                        <div class="reply_write_btn" id="replyWriteBtn">답변작성</div>
+                      </div>
+                      <div class="seller_reply_output_ex" id="sellerReplyOutEx">
+                        <div class="seller_reply_output hidden_seller_reply" id="sellerReplyOutput">
+                          <form id="sellerReply" class="seller_reply" action="">
+                            <input type="text" class="reply_text_box" id="replyTextBox">
+                            <input type="button" value="올리기" id="replyBtn" class="reply_btn">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section> -->
+                <!--inquiry_reply_ex-->
+                <div class="pagination_container">
+                  <div class="prev_button"><i class="fas fa-angle-left"></i></div>
+                  <div class="number_button_wrapper">
+                    <span class="number_button">1</span>
+                  </div>
+                  <div class="next_button"><i class="fas fa-angle-right"></i></div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!--left_area_tab-->
+    </div>
+    <!--left_area-->
+    <div class="right_area">
+      <div class="right_top">
+        <div class="product_info">
+          <div class="text">
+            <h2>IK테이블 스탠드</h2>
+            <h1>SNOWMAN22 SOLID Table Stand
+            </h1>
+            <b>230,000원</b>
+          </div>
+          <div class="share">
+            <a href="#">
+              <img src="./images/share.png" alt="share">
+            </a>
+          </div>
+        </div>
+        <!--product_info-->
+        <div class="product_color">
+          <div class="tab_menu">
+            <ul class="list">
+              <li class="is_on" id="colorTab1">
+                <a href="#tab1" class="btn">b</a>
+              </li>
+              <li id="colorTab2">
+                <a href="#tab2" class="btn">p</a>
+              </li>
+              <li id="colorTab3">
+                <a href="#tab3" class="btn">w</a>
+              </li>
+              <p id="colorText">[필수] 옵션을 선택해 주세요</p>
+            </ul>
+          </div>
+        </div>
+        <!--product_color-->
+        <div class="additional_product">
+          <p>추가 구성상품</p>
+          <div class="additional_wrap">
+            <div class="additional_image">
+              <a href="#"><img src="./images/additional_product.png" alt="additional_product" /></a>
+            </div>
+            <div class="additional_text">
+              <a href="#">
+                <h1>IK Dimmer Switch Orange</h1>
+                <b>20,000원</b>
+              </a>
+            </div>
+          </div>
+          <!--additional_wrap-->
+        </div>
+        <!--additional_product-->
+
+        <div class="delivery_benefit">
+          <div class="delivery">
+            <b>배송비</b>
+            <p>
+              150,000원 이상 구매 시 무료배송(미만 시 배송비 3,300원 발생)
+              <br />제주도를 포함한 도서/산간지역은 추가 배송비 발생
+            </p>
+          </div>
+
+          <div class="benefit">
+            <b>카드 혜택</b>
+            <a href="#!">
+              <p class="benefit_open_btn" id="benefitOpenBtn">?</p>
+            </a>
+          </div>
+        </div>
+        <!--delivery-->
+        <div class="count">
+          <form name="orderform" id="orderform" method="post" class="orderform" action="/Page" onsubmit="return false;">
+            <input type="hidden" name="cmd" value="order" />
+            <div class="basketdiv" id="basket">
+              <div class="row data">
+                <div class="subdiv">
+                  <!-- 체크 지우면 개수 카운팅 안 됨 -->
+                  <div class="check">
+                    <input type="checkbox" name="buy" value="262" checked=""
+                      onclick="javascript:basket.checkItem();" />&nbsp;
+                  </div>
+                  <div class="pname">
+                    <span>총 상품 금액(수량)</span>
+                  </div>
+                </div>
+                <!--카운트 왼쪽-->
+                <div class="subdiv">
+                  <div class="basketprice">
+                    <input type="hidden" name="p_price" id="p_price3" class="p_price" value="230000" />230,000원
+                  </div>
+                  <!--  -->
+                  <div class="num">
+                    <div class="updown">
+                      <span class="minus" onclick="javascript:basket.changePNum(3);"><i
+                          class="fas fa-minus down"></i></span>
+                      <!-- - -->
+                      <input type="text" name="p_num3" id="p_num3" size="2" maxlength="4" class="p_num" value="1"
+                        onkeyup="javascript:basket.changePNum(3);" />
+                      <!-- 1 -->
+                      <span class="plus" onclick="javascript:basket.changePNum(3);"><i
+                          class="fas fa-plus up"></i></span>
+                    </div>
+                  </div>
+                  <!-- + -->
+                  <div class="sum">230,000원</div>
+                </div>
+                <!--카운트 중간-->
+                <div class="subdiv">
+                  <div class="basketcmd">
+                    <a href="javascript:void(0)" class="abutton" onclick="javascript:basket.delItem();"><i
+                        class="fas fa-times"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="count_right">
+              <span class="bigtext right-align box blue summoney" id="sum_p_price">
+                230,000원
+              </span>
+              <span class="bigtext right-align sumcount" id="sum_p_num">
+                (1개)
+              </span>
+            </div>
+            <!--카운트 오른쪽-->
+          </form>
+          <!--count_box-->
+        </div>
+        <!--count-->
+        <div class="buy_cart">
+          <div class="buy"><a href="">구매하기</a></div>
+          <div class="cart"><a href="">장바구니</a></div>
+        </div>
+        <!--buy_cart-->
+      </div>
+      <!--right_top-->
+
+      <div class="right_bottom accordion_menu">
+        <button class="accordion">제품 문의 및 교환/반품 안내</button>
+        <div class="panel">
+          <p>
+            제품하자나 교환, 반품을 원하실 경우에는 고객 센터로 연락 주시면
+            처리해 드리겠습니다. <br /><br />
+            교환, 반품은 제품수령 후 7일 이내 고객 세너로 신청하여야
+            합니다.<br /><br />
+            전구 제품은 유리와 필러멘트로 구성되어 택배 운송 중 취급 부주의에
+            의한 파손이나 고장이 발생할 수 있습니다. 운송 중 발생한 파손이나
+            고장은 고객센터로 연락주시면, 신속하게 교환 또는
+            대체해드리겠습니다. <br /><br />
+            주문실수, 단순 변심에 의한 반품 또는 교환 시 택배 비용은 고객님
+            부담이오니 잘 확인하시어 주문바랍니다.
+          </p>
+        </div>
+
+        <button class="accordion">배송 안내</button>
+        <div class="panel">
+          <p>
+            오후 1시까지 입금확인 된 주문 건은 당일 발송(주말/공휴일 제외)이
+            가능하며 이후 주문 건은 익일발송됩니다. 단, 주문 접수 후 조립하는
+            스탠드, 팬턴트 제품은 오후 1시까지 입금 확인 된 주문건은 익일
+            발송하며(주말/공휴일 제외) 이후 주문 건은 2일 후 발송됩니다.
+            <br /><br />
+            택배사: 한진택배(hanex.hanjin.co.kr/1588-0011)
+            <br /><br />
+            배송비: 3,300원(도서 산간지역 및 제주도는 요금이 추가됩니다.)
+          </p>
+        </div>
+
+        <button class="accordion">일광로틱</button>
+        <div class="panel">
+          <p>
+            CS center: 053-581-1076 / light@iklamp.co.kr <br /><br />
+            상담시간: 평일 9:00~16:00 (주말/공휴일은 휴무입니다.)
+            <br /><br />
+            무통장 입금: 기업은행 김흥도 482-024036-01-039
+          </p>
+        </div>
+      </div>
+      <!--accordion_menu-->
+    </div>
+    <!--right_area-->
+  </div>
+  <script>
+
+  </script>
+</body>
+
+</html>

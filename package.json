@@ -1,0 +1,21 @@
+{
+  "name": "server_program",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index..html",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "sass": "^1.63.3",
+    "sass-loader": "^13.3.2"
+  },
+  "dependencies": {
+    "posthtml": "^0.16.6"
+  }
+}
